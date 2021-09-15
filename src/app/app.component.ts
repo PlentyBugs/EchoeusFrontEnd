@@ -12,7 +12,7 @@ import {Greeting} from "./greeting.component";
 
 export class AppComponent implements OnDestroy {
   destroy$: Subject<boolean> = new Subject<boolean>();
-  title = 'EchoeusFrontEnd';
+  title = 'Echoeus';
   greeting: Greeting = {id: "", content: ""};
   constructor(private http: HttpClient) {
     http.get<Greeting>('/api/resource').pipe(takeUntil(this.destroy$)).subscribe(data => this.greeting = data);
