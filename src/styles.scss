@@ -1,9 +1,18 @@
 @import '~bootstrap/scss/bootstrap';
 
 $navbar-height: 6vh;
+$body-height: 100vh - $navbar-height;
 $background-color: #1c1c1c;
 $font-color: #f1a9a0;
 $font-family: Segoe UI;
+$left-menu-width: 20vw;
+$left-menu-position-start: 0vw;
+$left-menu-position-hidden: -$left-menu-width;
+$right-menu-width: 20vw;
+$right-menu-position-start: 100vw - $right-menu-width;
+$right-menu-position-hidden: 100vw;
+$main-width: 100vw - $left-menu-width - $right-menu-width;
+$main-position-start: (100vw - $main-width) / 2;
 
 forall {
   margin: 0;
@@ -14,6 +23,33 @@ body {
   background-color: $background-color;
   color: $font-color;
   font-family: $font-family;
+}
+
+.left-menu {
+  height: $body-height;
+  width: $left-menu-width;
+  background-color: antiquewhite;
+  position: fixed;
+  margin-left: $left-menu-position-start;
+  z-index: 5;
+}
+
+.right-menu {
+  height: $body-height;
+  width: $right-menu-width;
+  background-color: blueviolet;
+  position: fixed;
+  margin-left: $right-menu-position-start;
+  z-index: 5;
+}
+
+.main {
+  height: $body-height;
+  width: $main-width;
+  background-color: #f1a9a0;
+  position: fixed;
+  margin-left: $main-position-start;
+  z-index: 3;
 }
 
 .navbar-custom {
