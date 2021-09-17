@@ -1,0 +1,13 @@
+@import "~src/styles";
+
+.left-menu {
+  height: $body-height;
+  width: $left-menu-width;
+  background-color: #1c1c1c;
+  position: fixed;
+  z-index: 5;
+}
+
+.left-trigger {
+  margin-left: $left-menu-width - $trigger-size / 2;
+}

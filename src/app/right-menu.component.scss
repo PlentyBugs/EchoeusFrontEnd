@@ -1,0 +1,14 @@
+@import "~src/styles";
+
+.right-menu {
+  height: $body-height;
+  width: $right-menu-width;
+  background-color: #1c1c1c;
+  position: fixed;
+  margin-left: $right-menu-position-start;
+  z-index: 5;
+}
+
+.right-trigger {
+  margin-left: -$trigger-size / 2;
+}

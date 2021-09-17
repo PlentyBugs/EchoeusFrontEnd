@@ -1,0 +1,11 @@
+@import "~src/styles";
+
+.main {
+  height: $body-height;
+  width: $main-width;
+  background-color: #2a2a2a;
+  position: fixed;
+  margin-left: $main-position-start;
+  padding: $trigger-size / 2;
+  z-index: 3;
+}
