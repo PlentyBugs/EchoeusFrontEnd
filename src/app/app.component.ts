@@ -1,11 +1,6 @@
-import {Component, Inject, OnDestroy} from '@angular/core';
-import {takeUntil} from 'rxjs/operators';
-import {HttpClient} from "@angular/common/http";
-import {Subject} from "rxjs";
-import {Greeting} from "./greeting.component";
-import {LeftMenuComponent} from "./left-menu.component";
-import {RightMenuComponent} from "./right-menu.component";
+import {Component, Inject, Injectable, OnDestroy} from '@angular/core';
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {AppService} from "./app.service";
 
 @Component({
   selector: 'app-root',
@@ -35,25 +30,14 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
 })
 
 export class AppComponent implements OnDestroy {
-  destroy$: Subject<boolean> = new Subject<boolean>();
-  title = 'Echoeus';
-  greeting: Greeting = {id: "", content: ""};
-  constructor(private http: HttpClient) {
-    // http.get<Greeting>('/api/resource').pipe(takeUntil(this.destroy$)).subscribe(data => this.greeting = data);
-  }
+
+  constructor(private appService: AppService) {}
 
   get menuState() {
-    return LeftMenuComponent.collapsed && RightMenuComponent.collapsed
-      ? 'full'
-      : LeftMenuComponent.collapsed
-        ? 'left'
-        : RightMenuComponent.collapsed
-          ? 'right'
-          : 'min';
+    return this.appService.menuState;
   }
 
   ngOnDestroy(): void {
-    this.destroy$.next(true);
-    this.destroy$.unsubscribe();
+    this.appService.ngOnDestroy();
   }
 }

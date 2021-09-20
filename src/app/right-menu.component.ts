@@ -1,11 +1,12 @@
-import {Component, Injectable, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {RightMenuService} from "./right-menu.service";
 
 @Component({
   selector: 'app-right-menu',
   template: `
-    <div class="right-menu d-inline-flex" [@rightMenuState]="collapsedState" (click)="toggle()">
-      <div class="trigger right-trigger"></div>
+    <div class="right-menu d-inline-flex" [@rightMenuState]="collapsedState">
+      <div class="trigger right-trigger" (click)="toggle()"></div>
     </div>
   `,
   styleUrls: ['./right-menu.component.scss'],
@@ -22,18 +23,15 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
+export class RightMenuComponent {
 
-export class RightMenuComponent implements OnInit {
-  static collapsed: boolean = false;
-
-  constructor() {}
-  ngOnInit() {}
+  constructor(private rms: RightMenuService) {}
 
   get collapsedState() {
-    return RightMenuComponent.collapsed ? 'hide': 'show';
+    return this.rms.collapsedState;
   }
 
   toggle() {
-    RightMenuComponent.collapsed = !RightMenuComponent.collapsed;
+    this.rms.toggle();
   }
 }

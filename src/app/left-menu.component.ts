@@ -1,11 +1,12 @@
-import {Component, Injectable, OnInit} from "@angular/core";
+import {Component} from "@angular/core";
 import {animate, state, style, transition, trigger} from "@angular/animations";
+import {LeftMenuService} from "./left-menu.service";
 
 @Component({
   selector: 'app-left-menu',
   template: `
-    <div class="left-menu d-inline-flex" [@leftMenuState]="collapsedState" (click)="toggle()">
-      <div class="trigger left-trigger"></div>
+    <div class="left-menu d-inline-flex" [@leftMenuState]="collapsedState">
+      <div class="trigger left-trigger" (click)="toggle()"></div>
     </div>
   `,
   styleUrls: ['./left-menu.component.scss'],
@@ -22,18 +23,14 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
     ])
   ]
 })
-
-export class LeftMenuComponent implements OnInit {
-  static collapsed: boolean = false;
-
-  constructor() {}
-  ngOnInit() {}
+export class LeftMenuComponent {
+  constructor(private lms: LeftMenuService) {}
 
   get collapsedState() {
-    return LeftMenuComponent.collapsed ? 'hide': 'show';
+    return this.lms.collapsedState;
   }
 
   toggle() {
-    LeftMenuComponent.collapsed = !LeftMenuComponent.collapsed;
+    this.lms.toggle();
   }
 }
