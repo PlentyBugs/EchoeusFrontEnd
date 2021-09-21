@@ -1,0 +1,23 @@
+@import "./src/styles";
+
+.editor-header {
+  height: $editor-header-height;
+  width: 100%;
+}
+
+.editor-body {
+  height: $editor-body-height;
+}
+
+::ng-deep{
+  .mat-select-value-text {
+    color: $font-color !important;
+  }
+  .mat-form-field-label {
+    color: $font-color !important;
+  }
+  mat-option {
+    color: $font-color !important;
+    background-color: $background-color;
+  }
+}

@@ -9,8 +9,10 @@ $left-menu-width: 20vw;
 $right-menu-width: 20vw;
 $right-menu-position-start: 100vw - $right-menu-width;
 $main-width: 100vw - $left-menu-width - $right-menu-width;
-$main-position-start: (100vw - $main-width) / 2;
+$main-position-start: (100vw - $main-width) * 0.5;
 $trigger-size: 2vw;
+$editor-body-height: $body-height * 0.91;
+$editor-header-height: $body-height * 0.08;
 
 :root {
   --left-menu-width: 20vw;
@@ -20,7 +22,7 @@ $trigger-size: 2vw;
   --right-menu-position-start: 100vw - var(--right-menu-width);
   --right-menu-position: var(--right-menu-position-start);
   --main-width: 100vw - var(--left-menu-width) - var(--right-menu-width);
-  --main-position: (100vw - var(--main-width)) / 2;
+  --main-position: (100vw - var(--main-width)) * 0.5;
 }
 
 forall {
@@ -49,13 +51,18 @@ body {
 .navbar-custom img {
   height: $navbar-height;
   width: auto;
-  margin-top: -$navbar-height / 5;
+  margin-top: -$navbar-height * 0.2;
 }
 
 .logo-name {
   color: white;
-  font-size: $navbar-height * 2 / 3;
-  line-height: $navbar-height / 2;
+  font-size: $navbar-height * 0.667;
+  line-height: $navbar-height * 0.5;
+}
+
+.editor {
+  height: $body-height;
+  width: 100%;
 }
 
 .unselectable {
@@ -81,3 +88,6 @@ a:hover {
 a:active {
   text-decoration: none;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -16,7 +16,6 @@ export class AppService implements OnDestroy {
   }
 
   get menuState() {
-    console.log(this.leftMenu);
     return this.leftMenu.collapsed && this.rightMenu.collapsed
       ? 'full'
       : this.leftMenu.collapsed
