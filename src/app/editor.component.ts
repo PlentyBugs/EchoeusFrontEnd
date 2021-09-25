@@ -1,6 +1,5 @@
 import {Component} from "@angular/core";
 import {EditorService} from "./editor.service";
-import {editor} from "monaco-editor";
 
 @Component({
   selector: 'editor',

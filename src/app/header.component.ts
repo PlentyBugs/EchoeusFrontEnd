@@ -5,7 +5,7 @@ import {Component, OnInit} from "@angular/core";
   template: `
     <nav class="navbar navbar-dark bg-dark navbar-custom">
       <div class="w-100 text-center" id="navbarSupportedContent">
-        <a href="/" class="d-inline-block float-start mx-1 unselectable disabled">
+        <a href="/" class="d-inline-block float-start unselectable disabled logo">
           <img src="../assets/logo.svg" alt="" class="d-inline-block">
           <span class="logo-name">Echoeus</span>
         </a>

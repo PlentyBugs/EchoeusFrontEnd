@@ -4,7 +4,6 @@ $navbar-height: 6vh;
 $body-height: 100vh - $navbar-height;
 $background-color: #1c1c1c;
 $font-color: #f1a9a0;
-$font-family: Segoe UI;
 $left-menu-width: 20vw;
 $right-menu-width: 20vw;
 $right-menu-position-start: 100vw - $right-menu-width;
@@ -13,6 +12,16 @@ $main-position-start: (100vw - $main-width) * 0.5;
 $trigger-size: 2vw;
 $editor-body-height: $body-height * 0.91;
 $editor-header-height: $body-height * 0.08;
+
+@font-face {
+  font-family: comfortaa;
+  src: url("assets/font/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: comfortaa-bold;
+  src: url("assets/font/Comfortaa-Bold.ttf");
+}
 
 :root {
   --left-menu-width: 20vw;
@@ -30,10 +39,12 @@ forall {
   padding: 0;
 }
 
+html, body { height: 100%; }
+
 body {
   background-color: $background-color;
   color: $font-color;
-  font-family: $font-family;
+  font-family: 'comfortaa', Roboto, "Helvetica Neue", sans-serif;
 }
 
 .trigger {
@@ -46,18 +57,26 @@ body {
 
 .navbar-custom {
   height: $navbar-height;
+  padding: 0.1vh 0.1vw;
 }
 
 .navbar-custom img {
   height: $navbar-height;
   width: auto;
-  margin-top: -$navbar-height * 0.2;
+}
+
+.logo {
+  margin-left: 0.25vw;
+  margin-right: 0.25vw;
+  margin-top: 0;
+  line-height: 0;
 }
 
 .logo-name {
   color: white;
-  font-size: $navbar-height * 0.667;
-  line-height: $navbar-height * 0.5;
+  font-size: $navbar-height * 0.6;
+  line-height: $navbar-height * 0.4;
+  vertical-align: middle;
 }
 
 .editor {
@@ -88,6 +107,3 @@ a:hover {
 a:active {
   text-decoration: none;
 }
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
